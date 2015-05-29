@@ -1,3 +1,13 @@
+<?php
+if (isset($_REQUEST['num'])) {
+    $num = $_REQUEST['num'];
+}
+if (is_numeric($num)) {
+    $ans = $num * 1.618;
+} else {
+    $ans = '-';
+}
+?>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -14,12 +24,12 @@
             
             <p>テキストフィールドに数字を入力すると、黄金比を計算します。</p>
             
-            <form>
+            <form action="" method="get">
                 <input type="text" name="num" size="5"/>
                 <input type="submit" class="btn" value="Send"/>
             </form>
         
-            <p>の黄金比は・・・ <span></span></p>    
+            <p>の黄金比は・・・ 約<span><?php echo htmlspecialchars($ans); ?></span></p>
         </div>
     </div>
 
